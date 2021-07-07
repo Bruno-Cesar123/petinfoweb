@@ -79,7 +79,7 @@ const SignIn: React.FC = () => {
 
                 <button type="submit">ENTRAR</button>
 
-                <Link to="forgot-password">Esqueci minha senha</Link>
+                <Link to="/forgot-password">Esqueci minha senha</Link>
               </Form>
             )}
           </Formik>
