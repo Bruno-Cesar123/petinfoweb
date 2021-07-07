@@ -1,5 +1,5 @@
-import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
 import { toast } from 'react-toastify';
@@ -20,7 +20,8 @@ const schema = Yup.object().shape({
 });
 
 const ForgotPassword: React.FC = () => {
-  const history = useHistory();
+  const [loading, setLoading] = useState(false);
+
   return (
     <Container>
       <Content>
@@ -32,6 +33,8 @@ const ForgotPassword: React.FC = () => {
             validationSchema={schema}
             onSubmit={async (data: ForgotPasswordFormData) => {
               try {
+                setLoading(true);
+
                 await api.post('/password/forgot', {
                   email: data.email,
                 });
@@ -41,8 +44,10 @@ const ForgotPassword: React.FC = () => {
                 );
               } catch (err) {
                 toast.error(
-                  'Não foi possível enviar o pedido de recuperação de senha!.'
+                  'Não foi possível enviar o pedido de recuperação de senha, tente novamente.'
                 );
+              } finally {
+                setLoading(false);
               }
             }}
           >
@@ -58,7 +63,9 @@ const ForgotPassword: React.FC = () => {
                 />
                 {errors.email && touched.email ? <p>{errors.email}</p> : null}
 
-                <button type="submit">ENTRAR</button>
+                <button type="submit">
+                  {loading ? 'ENVIANDO...' : 'ENVIAR'}
+                </button>
 
                 <Link to="/signin">
                   <FiArrowLeft /> Voltar ao login
