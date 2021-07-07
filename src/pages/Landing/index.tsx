@@ -15,20 +15,22 @@ const Landing: React.FC = () => {
     <Container>
       <Header />
       <Content>
-        <main className="section-one">
+        <main id="grid-one">
           <section className="info">
-            <h1>PETINFO</h1>
+            <h1>INFOPETS</h1>
             <p>Cadastre seus pets e obtenha suas informações de forma online</p>
 
             <div className="button-container">
-              <Link to="/">Começar</Link>
+              <Link to="/signin" target="_blank">
+                Começar
+              </Link>
             </div>
           </section>
           <section className="img-content">
             <img src={petcode} alt="petcode" />
           </section>
         </main>
-        <main className="section-two">
+        <main id="grid-two">
           <section>
             <img src={img1} alt="imagem 1" />
             <p>Cadastre as informações do seu pet de forma rápida e prática.</p>

@@ -26,6 +26,11 @@ export const Container = styled.div`
           text-decoration: none;
           font-size: 1.6rem;
           color: #f8f8f8;
+          transition: all 300ms ease-in-out;
+        }
+
+        &:hover {
+          filter: brightness(0.9);
         }
       }
     }

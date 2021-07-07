@@ -6,17 +6,17 @@ const Header: React.FC = () => {
   return (
     <Container>
       <header>
-        <p>PETINFO</p>
+        <p>INFOPETS</p>
 
         <ul>
           <li>
-            <a href="/">HOME</a>
+            <a href="#grid-one">HOME</a>
           </li>
           <li>
-            <a href="/">SERVICES</a>
+            <a href="#grid-two">SERVICES</a>
           </li>
           <li>
-            <a href="/">CONTACT</a>
+            <a href="#grid-two">CONTACT</a>
           </li>
         </ul>
       </header>

@@ -8,7 +8,7 @@ export const Content = styled.div`
   max-width: 1200px;
   margin: 0 auto;
 
-  .section-one {
+  #grid-one {
     margin-top: 8rem;
     display: grid;
     align-items: center;
@@ -62,7 +62,7 @@ export const Content = styled.div`
     }
   }
 
-  .section-two {
+  #grid-two {
     display: grid;
     margin-top: 10rem;
     grid-template-columns: repeat(3, 1fr);
