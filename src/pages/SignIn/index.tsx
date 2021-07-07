@@ -9,6 +9,7 @@ import singin from '../../assets/images/singin.svg';
 
 import { Container, Content, AnimationContainer, Background } from './styles';
 import api from '../../services/api';
+import { useAuth } from '../../hooks/AuthContext';
 
 interface SignUInFormData {
   email: string;
@@ -24,6 +25,7 @@ const schema = Yup.object().shape({
 
 const SignIn: React.FC = () => {
   const history = useHistory();
+  const { signIn } = useAuth();
   return (
     <Container>
       <Content>
@@ -38,10 +40,17 @@ const SignIn: React.FC = () => {
               try {
                 await api.post('/sessions', data);
 
+                await signIn({
+                  email: data.email,
+                  password: data.password,
+                });
+
                 history.push('/dashboard');
                 toast.success('Login realizado com sucesso');
               } catch (err) {
-                toast.error('Não foi possível fazer o login');
+                toast.error(
+                  'Não foi possível fazer o login, cheque suas credenciais.'
+                );
               }
             }}
           >

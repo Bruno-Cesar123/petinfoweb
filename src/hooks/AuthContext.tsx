@@ -30,8 +30,8 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
-    const token = localStorage.getItem('@PetCode:token');
-    const user = localStorage.getItem('@PetCode:user');
+    const token = localStorage.getItem('@PetInfo:token');
+    const user = localStorage.getItem('@PetInfo:user');
 
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`;
@@ -49,8 +49,8 @@ const AuthProvider: React.FC = ({ children }) => {
 
     const { token, user } = response.data;
 
-    localStorage.setItem('@PetCode:token', token);
-    localStorage.setItem('@PetCode:user', JSON.stringify(user));
+    localStorage.setItem('@PetInfo:token', token);
+    localStorage.setItem('@PetInfo:user', JSON.stringify(user));
 
     api.defaults.headers.authorization = `Bearer ${token}`;
 
@@ -58,15 +58,15 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@PetCode:token');
-    localStorage.removeItem('@PetCode:user');
+    localStorage.removeItem('@PeInfo:token');
+    localStorage.removeItem('@PetInfo:user');
 
     setData({} as AuthState);
   }, []);
 
   const updateUser = useCallback(
     (user: User) => {
-      localStorage.setItem('@PetCode:user', JSON.stringify(user));
+      localStorage.setItem('@PetInfo:user', JSON.stringify(user));
 
       setData({
         token: data.token,
