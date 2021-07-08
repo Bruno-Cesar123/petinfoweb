@@ -1,0 +1,145 @@
+import styled from 'styled-components';
+
+export const Container = styled.div``;
+
+export const Header = styled.header`
+  padding: 32px 0;
+  background: #2f0147;
+`;
+
+export const HeaderContent = styled.div`
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+
+  > img {
+    height: 80px;
+  }
+
+  button {
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+
+    svg {
+      color: #999591;
+      width: 20px;
+      height: 20px;
+    }
+  }
+`;
+
+export const Profile = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+
+  img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    line-height: 24px;
+
+    span {
+      color: #f4ede8;
+      font-size: 1.6rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #904AAA;
+      font-size: 1.6rem;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+`;
+
+export const Content = styled.main`
+  max-width: 1200px;
+  margin: 64px auto;
+
+  h1 {
+    position: relative;
+    padding: 1rem 0;
+    color: #2f0147;
+
+
+    &::before {
+      display: block;
+      content: '';
+      width: 70%;
+      height: 0.1rem;
+      background: black;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  div {
+    margin-top: 80px;
+    max-width: 700px;
+
+    a {
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+    padding: 24px;
+    display: block;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateX(10px);
+    }
+
+    & + a {
+      margin-top: 16px;
+    }
+
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+
+    div {
+      margin: 0 16px;
+      flex: 1;
+
+      strong {
+        font-size: 20px;
+        color: #3d3d4d;
+      }
+
+      p {
+        font-size: 18px;
+        color: #a8a8b3;
+        margin-top: 4px;
+      }
+    }
+
+    svg {
+      margin-left: auto;
+      color: #cbcbd6;
+    }
+  }
+  }
+
+
+
+`;
