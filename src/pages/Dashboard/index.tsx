@@ -33,7 +33,7 @@ const Dashboard: React.FC = () => {
             <img src={user.avatar_url} alt={user.name} />
             <div>
               <span>Bem-vindo,</span>
-              <Link to="/profile">
+              <Link to="/profile-user">
                 <strong>{user.name}</strong>
               </Link>
             </div>
