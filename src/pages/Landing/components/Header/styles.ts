@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #904AAA;
+  background-color: #2f0147;
 
   header {
     display: flex;
@@ -13,6 +13,7 @@ export const Container = styled.div`
 
     p {
       font-size: 1.6rem;
+      color: #f8f8f8;
     }
 
     ul {

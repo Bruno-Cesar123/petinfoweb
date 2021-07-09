@@ -14,7 +14,7 @@ interface Pet {
 }
 
 const Dashboard: React.FC = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const [pets, setPets] = useState<Pet[]>([]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Dashboard: React.FC = () => {
             </div>
           </Profile>
 
-          <button type="button">
+          <button type="button" onClick={signOut}>
             <FiPower />
           </button>
         </HeaderContent>
@@ -55,7 +55,7 @@ const Dashboard: React.FC = () => {
                 <img src={pet.avatar_url} alt={pet.name} />
                 <div>
                   <strong>{pet.name}</strong>
-                  <p>Idade: {pet.age}</p>
+                  <p>Idade: {pet.age} anos.</p>
                 </div>
 
                 <FiChevronRight size={20} />

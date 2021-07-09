@@ -14,6 +14,12 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
 
+  h2 {
+    font-size: 3rem;
+    color: #f8f8f8;
+    font-weight: 900;
+  }
+
   > img {
     height: 80px;
   }
@@ -55,7 +61,7 @@ export const Profile = styled.div`
 
     a {
       text-decoration: none;
-      color: #904AAA;
+      color: #904aaa;
       font-size: 1.6rem;
 
       &:hover {
@@ -74,13 +80,12 @@ export const Content = styled.main`
     padding: 1rem 0;
     color: #2f0147;
 
-
     &::before {
       display: block;
       content: '';
       width: 70%;
       height: 0.1rem;
-      background: black;
+      background: #2f0147;
       position: absolute;
       bottom: 0;
       left: 0;
@@ -92,54 +97,51 @@ export const Content = styled.main`
     max-width: 700px;
 
     a {
-    background: #fff;
-    border-radius: 5px;
-    width: 100%;
-    padding: 24px;
-    display: block;
-    text-decoration: none;
+      background: #fff;
+      border-radius: 5px;
+      width: 100%;
+      padding: 24px;
+      display: block;
+      text-decoration: none;
 
-    display: flex;
-    align-items: center;
-    transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s;
 
-    &:hover {
-      transform: translateX(10px);
-    }
-
-    & + a {
-      margin-top: 16px;
-    }
-
-    img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-    }
-
-    div {
-      margin: 0 16px;
-      flex: 1;
-
-      strong {
-        font-size: 20px;
-        color: #3d3d4d;
+      &:hover {
+        transform: translateX(10px);
       }
 
-      p {
-        font-size: 18px;
-        color: #a8a8b3;
-        margin-top: 4px;
+      & + a {
+        margin-top: 16px;
+      }
+
+      img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+      }
+
+      div {
+        margin: 0 16px;
+        flex: 1;
+
+        strong {
+          font-size: 20px;
+          color: #2f0147;
+        }
+
+        p {
+          font-size: 18px;
+          color: #a8a8b3;
+          margin-top: 4px;
+        }
+      }
+
+      svg {
+        margin-left: auto;
+        color: #cbcbd6;
       }
     }
-
-    svg {
-      margin-left: auto;
-      color: #cbcbd6;
-    }
   }
-  }
-
-
-
 `;
