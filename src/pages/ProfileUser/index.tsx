@@ -1,12 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, ChangeEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import { FiArrowLeft, FiCamera } from 'react-icons/fi';
 import api from '../../services/api';
-
-import img1 from '../../assets/images/img1.svg';
 
 import { Container, Content, AvatarInput } from './styles';
 import { useAuth } from '../../hooks/AuthContext';
@@ -42,6 +40,23 @@ const schema = Yup.object().shape({
 const ProfileUser: React.FC = () => {
   const history = useHistory();
   const { user, updateUser } = useAuth();
+
+  const handleAvatarChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (e.target.files) {
+        const data = new FormData();
+
+        data.append('avatar', e.target.files[0]);
+
+        api.patch('/users/avatar', data).then((response) => {
+          updateUser(response.data);
+
+          toast.success('Avatar atualizado com sucesso');
+        });
+      }
+    },
+    [updateUser]
+  );
 
   return (
     <Container>
@@ -92,7 +107,9 @@ const ProfileUser: React.FC = () => {
                 history.push('/dashboard');
                 toast.success('Sua conta foi alterada com sucesso');
               } catch (err) {
-                toast.error('Não foi possivel criar sua conta');
+                toast.error(
+                  'Não foi possivel alterar sua conta, tente novamente'
+                );
               }
             },
             [updateUser, history]
@@ -101,14 +118,17 @@ const ProfileUser: React.FC = () => {
           {({ errors, touched }) => (
             <Form>
               <AvatarInput>
-                <img src={img1} alt="teste" />
+                <img src={user.avatar_url} alt={user.name} />
                 <label htmlFor="avatar">
                   <FiCamera />
 
-                  <input type="file" id="avatar" />
+                  <input
+                    type="file"
+                    id="avatar"
+                    onChange={handleAvatarChange}
+                  />
                 </label>
               </AvatarInput>
-
               <h2>Meu perfil</h2>
 
               <Field
