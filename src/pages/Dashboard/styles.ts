@@ -75,24 +75,32 @@ export const Content = styled.main`
   max-width: 1200px;
   margin: 64px auto;
 
-  h1 {
-    position: relative;
-    padding: 1rem 0;
-    color: #2f0147;
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 700px;
+    border-bottom: 1px solid #2f0147;
 
-    &::before {
-      display: block;
-      content: '';
-      width: 70%;
-      height: 0.1rem;
+    h1 {
+      position: relative;
+      padding: 1rem 0;
+      color: #2f0147;
+    }
+
+    button {
       background: #2f0147;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      color: #f8f8f8;
+      font-size: 1.6rem;
+      padding: 8px;
+      width: 12rem;
+      text-decoration: none;
+      border-radius: 8px;
+      border: none;
     }
   }
 
-  div {
+  .list-pets {
     margin-top: 80px;
     max-width: 700px;
 

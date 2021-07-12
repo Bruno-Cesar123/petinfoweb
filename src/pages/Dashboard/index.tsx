@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPower, FiChevronRight } from 'react-icons/fi';
-
+import ModalContent from '../../components/ModalContent';
 import { Container, Header, Profile, HeaderContent, Content } from './styles';
 import { useAuth } from '../../hooks/AuthContext';
 import api from '../../services/api';
@@ -16,6 +16,7 @@ interface Pet {
 const Dashboard: React.FC = () => {
   const { user, signOut } = useAuth();
   const [pets, setPets] = useState<Pet[]>([]);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     api.get<Pet[]>('/pets').then((response) => {
@@ -46,9 +47,20 @@ const Dashboard: React.FC = () => {
       </Header>
 
       <Content>
-        <h1>Seus Pets</h1>
+        <div className="title">
+          <h1>Seus Pets</h1>
+          <button onClick={() => setOpenModal(true)} type="button">
+            Cadastrar Pet
+          </button>
+        </div>
 
-        <div>
+        <ModalContent
+          isOpen={openModal}
+          onRequestClose={() => setOpenModal(false)}
+          onClick={() => setOpenModal(false)}
+        />
+
+        <div className="list-pets">
           {pets.map((pet) => {
             return (
               <Link key={pet.age} to={`/pets/${pet.id}`}>
