@@ -24,10 +24,15 @@ const ModalContent: React.FC<ModalProps> = ({
       overlayClassName="overlay"
       closeTimeoutMS={500}
     >
-      <h1>Deseja deletar a pergunta?</h1>
+      <h1>Cadastre seu novo pet</h1>
+      <div className="content">
+        <input name="name" type="text" placeholder="Nome" />
+        <input name="age" type="number" placeholder="Idade" min="1" />
+        <textarea name="description" placeholder="Descrição" />
+      </div>
       <div className="buttons">
         <button type="button" className="confirm">
-          Confirmar
+          Cadastrar
         </button>
         <button type="button" className="cancel" onClick={onClick}>
           Cancelar
