@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPower, FiChevronRight } from 'react-icons/fi';
+import { useCallback } from 'react';
 import ModalContent from '../../components/ModalContent';
 import { Container, Header, Profile, HeaderContent, Content } from './styles';
 import { useAuth } from '../../hooks/AuthContext';
@@ -15,12 +16,13 @@ interface Pet {
 
 const Dashboard: React.FC = () => {
   const { user, signOut } = useAuth();
-  const [pets, setPets] = useState<Pet[]>([]);
   const [openModal, setOpenModal] = useState(false);
+  const [pets, setPets] = useState<Pet[]>([]);
 
   useEffect(() => {
     api.get<Pet[]>('/pets').then((response) => {
-      setPets(response.data);
+      const newPets = response.data;
+      setPets(newPets);
     });
   }, []);
 

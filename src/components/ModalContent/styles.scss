@@ -38,6 +38,16 @@
       margin-top: 1.8rem;
       border: 1px solid #2f0147;
     }
+
+    .input-error {
+      border: solid 1px red;
+    }
+
+    p {
+      color: red;
+      font-size: 1.6rem;
+      margin-top: 1rem;
+    }
   }
 
   .buttons {
