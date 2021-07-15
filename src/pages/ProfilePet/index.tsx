@@ -19,7 +19,6 @@ interface PetParams {
 }
 
 interface Pet {
-  id: string;
   name: string;
   description: string;
   age: number;
@@ -60,7 +59,19 @@ const ProfilePet: React.FC = () => {
     [params.id]
   );
 
-  console.log(pet);
+  const updatePet = useCallback(
+    async (data: ProfileFormData) => {
+      try {
+        await api.put(`/pets/${params.id}`, data);
+
+        history.push('/dashboard');
+        toast.success('Pet alterado com sucesso');
+      } catch (err) {
+        toast.error('Não foi possivel alterar seu conta, tente novamente');
+      }
+    },
+    [history, params.id]
+  );
 
   return (
     <Container>
@@ -72,74 +83,60 @@ const ProfilePet: React.FC = () => {
         </div>
       </header>
       <Content>
-        <Formik
-          initialValues={{
-            name: '',
-            age: 0,
-            description: '',
-          }}
-          validationSchema={schema}
-          onSubmit={useCallback(
-            async (data: ProfileFormData) => {
-              try {
-                await api.put(`/pets/${params.id}`, data);
+        {pet && (
+          <Formik
+            initialValues={{
+              name: pet.name,
+              age: pet.age,
+              description: pet.description,
+            }}
+            validationSchema={schema}
+            onSubmit={updatePet}
+          >
+            {({ errors, touched }) => (
+              <Form>
+                <AvatarInput>
+                  <img src={pet.avatar_url} alt={pet.name} />
+                  <label htmlFor="avatar">
+                    <FiCamera />
 
-                history.push('/dashboard');
-                toast.success('Pet alterado com sucesso');
-              } catch (err) {
-                toast.error(
-                  'Não foi possivel alterar seu conta, tente novamente'
-                );
-              }
-            },
-            [history, params.id]
-          )}
-        >
-          {({ errors, touched }) => (
-            <Form>
-              <AvatarInput>
-                <img src={pet?.avatar_url} alt={pet?.name} />
-                <label htmlFor="avatar">
-                  <FiCamera />
+                    <input
+                      type="file"
+                      id="avatar"
+                      onChange={handleAvatarChange}
+                    />
+                  </label>
+                </AvatarInput>
+                <h2>Meu perfil</h2>
 
-                  <input
-                    type="file"
-                    id="avatar"
-                    onChange={handleAvatarChange}
-                  />
-                </label>
-              </AvatarInput>
-              <h2>Meu perfil</h2>
+                <Field
+                  name="name"
+                  type="text"
+                  placeholder="Digite seu nome"
+                  className={errors.name && touched.name ? 'input-error' : ''}
+                />
+                {errors.name && touched.name ? <p>{errors.name}</p> : null}
+                <Field
+                  name="age"
+                  type="number"
+                  placeholder="Digite a idade"
+                  className={errors.age && touched.age ? 'input-error' : ''}
+                  min="1"
+                />
+                {errors.age && touched.age ? <p>{errors.age}</p> : null}
 
-              <p>{pet?.name}</p>
+                <Field
+                  as="textarea"
+                  textarea
+                  name="description"
+                  placeholder="Descrição"
+                />
 
-              <Field
-                name="name"
-                type="text"
-                placeholder="Digite seu nome"
-                className={errors.name && touched.name ? 'input-error' : ''}
-              />
-              {errors.name && touched.name ? <p>{errors.name}</p> : null}
-              <Field
-                name="age"
-                type="number"
-                placeholder="Digite a idade"
-                className={errors.age && touched.age ? 'input-error' : ''}
-                min="1"
-              />
-              {errors.age && touched.age ? <p>{errors.age}</p> : null}
-
-              <Field
-                as="textarea"
-                textarea
-                name="description"
-                placeholder="Descrição"
-              />
-
-              <button type="submit">Confirmar mudanças</button>
-            </Form>
-          )}
-        </Formik>
+                <button type="submit">Confirmar mudanças</button>
+              </Form>
+            )}
+          </Formik>
+        )}
       </Content>
     </Container>
   );
