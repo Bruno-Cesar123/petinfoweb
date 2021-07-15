@@ -4,10 +4,11 @@ import { useHistory } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
-import './styles.scss';
 import { toast } from 'react-toastify';
 import { useAuth } from '../../hooks/AuthContext';
 import api from '../../services/api';
+
+import './styles.scss';
 
 Modal.setAppElement('#root');
 
@@ -62,7 +63,7 @@ const ModalContent: React.FC<ModalProps> = ({
             history.push('/dashboard');
             toast.success('Seu Pet foi sucesso');
           } catch (err) {
-            toast.error('Não foi possivel criar sua conta');
+            toast.error('Não foi possivel criar seu novo pet');
           }
         }}
       >

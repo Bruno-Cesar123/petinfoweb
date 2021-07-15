@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPower, FiChevronRight } from 'react-icons/fi';
-import { useCallback } from 'react';
 import ModalContent from '../../components/ModalContent';
 import { Container, Header, Profile, HeaderContent, Content } from './styles';
 import { useAuth } from '../../hooks/AuthContext';
@@ -65,7 +64,7 @@ const Dashboard: React.FC = () => {
         <div className="list-pets">
           {pets.map((pet) => {
             return (
-              <Link key={pet.age} to={`/pets/${pet.id}`}>
+              <Link key={pet.id} to={`/profile-pet/${pet.id}`}>
                 <img src={pet.avatar_url} alt={pet.name} />
                 <div>
                   <strong>{pet.name}</strong>
