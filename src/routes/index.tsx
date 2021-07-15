@@ -9,6 +9,7 @@ import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
 import ProfileUser from '../pages/ProfileUser';
 import ProfilePet from '../pages/ProfilePet';
+import PetInfo from '../pages/PetInfo';
 
 import Route from './Route';
 
@@ -22,6 +23,7 @@ const Routes: React.FC = () => (
     <Route path="/dashboard" component={Dashboard} isPrivate />
     <Route path="/profile-user" component={ProfileUser} isPrivate />
     <Route path="/profile-pet/:id" component={ProfilePet} isPrivate />
+    <Route path="/pet-info/:id" component={PetInfo} isPrivate />
   </Switch>
 );
 

@@ -86,12 +86,7 @@ const ModalContent: React.FC<ModalProps> = ({
                 className={errors.age && touched.age ? 'input-error' : ''}
               />
               {errors.age && touched.age ? <p>{errors.age}</p> : null}
-              <Field
-                as="textarea"
-                textarea
-                name="description"
-                placeholder="Descrição"
-              />
+              <Field as="textarea" name="description" placeholder="Descrição" />
             </div>
             <div className="buttons">
               <button type="submit" className="confirm">

@@ -1,9 +1,9 @@
 import { shade } from 'polished';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   > header {
-    height: 144px;
+    padding: 32px 0;
     background: #2f0147;
 
     display: flex;
@@ -23,21 +23,24 @@ export const Container = styled.div`
   }
 `;
 
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: -176px auto 0;
+export const Content = styled.main`
+  max-width: 1100px;
+  margin: 24px auto;
 
-  width: 100%;
+  display: flex;
+  gap: 24px;
+
+  /* div {
+    img {
+      padding: 12px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+    }
+  } */
 
   form {
-    margin: 80px 0;
-    width: 340px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+    padding: 12px;
 
     h2 {
       font-size: 4rem;
@@ -65,44 +68,50 @@ export const Content = styled.div`
       border: 1px solid #2f0147;
     }
 
-    .input-error {
-      border: solid 1px red;
-    }
-
-    p {
-      color: red;
-      font-size: 1.6rem;
-      margin-top: 1rem;
-    }
-
     button {
-      font-size: 2rem;
-      width: 100%;
-      height: 56px;
-      font-weight: 500;
-      padding: 0 1.6rem;
+      margin-top: 1rem;
+      height: 50px;
+      border-radius: 8px;
+      font-size: 1.6rem;
+
+      padding: 0 32px;
+
+      cursor: pointer;
       border: 0;
-      border-radius: 2rem;
-      margin-top: 1.6rem;
-      background: #2f0147;
-      color: #f8f8f8;
-      transition: background-color 0.2s;
+
+      transition: filter 0.2s;
 
       &:hover {
-        background: ${shade(0.6, '#2f0147')};
+        filter: brightness(0.9);
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 1.8rem;
+
+      .confirm {
+        background: #31d83f;
+        color: #f8f8f8;
+      }
+
+      .exclude {
+        background: #ea4335;
+        color: #f8f8f8;
       }
     }
   }
 `;
 
 export const AvatarInput = styled.div`
-  margin-bottom: 32px;
   position: relative;
   align-self: center;
 
+
   img {
-    width: 186px;
-    height: 186px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
   }
 
@@ -129,7 +138,7 @@ export const AvatarInput = styled.div`
     svg {
       width: 20px;
       height: 20px;
-      color: #312e38;
+      color: #f8f8f8;
     }
 
     &:hover {

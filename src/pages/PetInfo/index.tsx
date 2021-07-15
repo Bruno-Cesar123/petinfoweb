@@ -1,9 +1,9 @@
-import React, { useCallback, ChangeEvent, useState, useEffect } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
-import { Formik, Form, Field } from 'formik';
+import React, { useCallback, useState, ChangeEvent, useEffect } from 'react';
+import { Link, useParams, useHistory } from 'react-router-dom';
+import { FiArrowLeft, FiCamera } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
-import { FiArrowLeft, FiCamera } from 'react-icons/fi';
+import { Formik, Form, Field } from 'formik';
 import api from '../../services/api';
 
 import { Container, Content, AvatarInput } from './styles';
@@ -31,9 +31,9 @@ const schema = Yup.object().shape({
   description: Yup.string(),
 });
 
-const ProfilePet: React.FC = () => {
-  const [pet, setPet] = useState<Pet>();
+const PetInfo: React.FC = () => {
   const params = useParams<PetParams>();
+  const [pet, setPet] = useState<Pet>();
   const history = useHistory();
 
   useEffect(() => {
@@ -73,6 +73,17 @@ const ProfilePet: React.FC = () => {
     [history, params.id]
   );
 
+  const handleDeletePet = useCallback(async () => {
+    try {
+      await api.delete(`/pets/${params.id}`);
+
+      history.push('/dashboard');
+      toast.success('Pet deletado com sucesso');
+    } catch (err) {
+      toast.error('Não foi possivel deletar o pet');
+    }
+  }, [history, params.id]);
+
   return (
     <Container>
       <header>
@@ -82,39 +93,40 @@ const ProfilePet: React.FC = () => {
           </Link>
         </div>
       </header>
-      <Content>
-        {pet && (
-          <Formik
-            initialValues={{
-              name: pet.name,
-              age: pet.age,
-              description: pet.description,
-            }}
-            validationSchema={schema}
-            onSubmit={updatePet}
-          >
-            {({ errors, touched }) => (
-              <Form>
-                <AvatarInput>
-                  <img
-                    src={
-                      pet.avatar_url
-                        ? pet.avatar_url
-                        : 'http://placehold.it/300x300'
-                    }
-                    alt={pet.name}
-                  />
-                  <label htmlFor="avatar">
-                    <FiCamera />
 
-                    <input
-                      type="file"
-                      id="avatar"
-                      onChange={handleAvatarChange}
-                    />
-                  </label>
-                </AvatarInput>
-                <h2>Perfil do Pet</h2>
+      {pet && (
+        <Formik
+          initialValues={{
+            name: pet.name,
+            age: pet.age,
+            description: pet.description,
+          }}
+          validationSchema={schema}
+          onSubmit={updatePet}
+        >
+          {({ errors, touched }) => (
+            <Content>
+              <AvatarInput>
+                <img
+                  src={
+                    pet.avatar_url
+                      ? pet.avatar_url
+                      : 'http://placehold.it/300x300'
+                  }
+                  alt={pet.name}
+                />
+                <label htmlFor="avatar">
+                  <FiCamera />
+
+                  <input
+                    type="file"
+                    id="avatar"
+                    onChange={handleAvatarChange}
+                  />
+                </label>
+              </AvatarInput>
+              <Form>
+                <h2>Informações do Pet</h2>
 
                 <Field
                   name="name"
@@ -138,14 +150,25 @@ const ProfilePet: React.FC = () => {
                   placeholder="Descrição"
                 />
 
-                <button type="submit">Confirmar mudanças</button>
+                <div className="buttons">
+                  <button type="submit" className="confirm">
+                    Alterar dados
+                  </button>
+                  <button
+                    type="button"
+                    className="exclude"
+                    onClick={handleDeletePet}
+                  >
+                    Excluir Pet
+                  </button>
+                </div>
               </Form>
-            )}
-          </Formik>
-        )}
-      </Content>
+            </Content>
+          )}
+        </Formik>
+      )}
     </Container>
   );
 };
 
-export default ProfilePet;
+export default PetInfo;

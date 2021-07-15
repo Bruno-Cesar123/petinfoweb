@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
     <Container>
       <Header>
         <HeaderContent>
-          <h2>PETINFO</h2>
+          <h2>INFOPETS</h2>
 
           <Profile>
             <img src={user.avatar_url} alt={user.name} />
@@ -64,11 +64,20 @@ const Dashboard: React.FC = () => {
         <div className="list-pets">
           {pets.map((pet) => {
             return (
-              <Link key={pet.id} to={`/profile-pet/${pet.id}`}>
-                <img src={pet.avatar_url} alt={pet.name} />
+              <Link key={pet.id} to={`/pet-info/${pet.id}`}>
+                <img
+                  src={
+                    pet.avatar_url
+                      ? pet.avatar_url
+                      : 'http://placehold.it/300x300'
+                  }
+                  alt={pet.name}
+                />
                 <div>
                   <strong>{pet.name}</strong>
-                  <p>Idade: {pet.age} anos.</p>
+                  <p>
+                    Idade: {pet.age} {pet.age < 2 ? 'ano' : 'anos'}
+                  </p>
                 </div>
 
                 <FiChevronRight size={20} />
