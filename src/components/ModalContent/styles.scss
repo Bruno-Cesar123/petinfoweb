@@ -11,15 +11,20 @@
   padding: 20px;
 
   display: flex;
+  align-items: center;
   flex-direction: column;
 
   h1 {
-      position: relative;
-      padding: 1rem 0;
-      color: #2f0147;
+    text-align: center;
+    padding: 1rem 0;
+    color: #2f0147;
   }
 
   .content {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+
     input {
       font-size: 1.6rem;
       width: 100%;
@@ -46,7 +51,7 @@
     p {
       color: red;
       font-size: 1.6rem;
-      margin-top: 1rem;
+      margin-top: 1.6rem;
     }
   }
 
@@ -94,10 +99,14 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-@media(max-width: 780px) {
+@media (max-width: 780px) {
   .modal {
     h1 {
       font-size: 20px;
+    }
+
+    .content {
+      width: 380px;
     }
 
     .buttons {

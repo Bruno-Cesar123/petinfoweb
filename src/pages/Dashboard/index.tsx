@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
       <Content>
         <div className="title">
           <h1>Seus Pets</h1>
-          <button onClick={() => setOpenModal(true)} type="button">
+          <button type="button" onClick={() => setOpenModal(true)}>
             Cadastrar Pet
           </button>
         </div>
