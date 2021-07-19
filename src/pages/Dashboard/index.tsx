@@ -9,6 +9,7 @@ import ModalContent from '../../components/ModalContent';
 import { Container, Header, Profile, HeaderContent, Content } from './styles';
 import { useAuth } from '../../hooks/AuthContext';
 import api from '../../services/api';
+import DashboardSkeleton from '../../components/Skeleton/DashboardSkeleton';
 
 interface Pet {
   id: string;
@@ -37,11 +38,13 @@ const Dashboard: React.FC = () => {
   const { user, signOut } = useAuth();
   const [openModal, setOpenModal] = useState(false);
   const [pets, setPets] = useState<Pet[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     api.get<Pet[]>('/pets').then((response) => {
       const newPets = response.data;
       setPets(newPets);
+      setLoading(false);
     });
   }, []);
 
@@ -79,72 +82,13 @@ const Dashboard: React.FC = () => {
           </button>
         </div>
 
-        <ModalContent isOpen={openModal} onRequestClose={handleOpenModal}>
-          <Formik
-            initialValues={{
-              name: '',
-              age: 0,
-              pet_id: user.id,
-              description: '',
-            }}
-            validationSchema={schema}
-            onSubmit={async (dataForm: CreatePetFormData) => {
-              try {
-                const { data } = await api.post('/pets', dataForm);
-
-                setPets([...pets, data]);
-
-                setOpenModal(false);
-
-                toast.success('Seu Pet foi sucesso');
-              } catch (err) {
-                toast.error('Não foi possivel criar seu novo pet');
-              }
-            }}
-          >
-            {({ errors, touched }) => (
-              <Form>
-                <h1>Cadastre seu novo pet</h1>
-                <div className="content">
-                  <Field
-                    name="name"
-                    type="text"
-                    placeholder="Nome"
-                    className={errors.name && touched.name ? 'input-error' : ''}
-                  />
-                  {errors.name && touched.name ? <p>{errors.name}</p> : null}
-                  <Field
-                    name="age"
-                    type="number"
-                    placeholder="Idade"
-                    min="1"
-                    className={errors.age && touched.age ? 'input-error' : ''}
-                  />
-                  {errors.age && touched.age ? <p>{errors.age}</p> : null}
-                  <Field
-                    as="textarea"
-                    name="description"
-                    placeholder="Descrição"
-                  />
-                </div>
-                <div className="buttons">
-                  <button type="submit" className="confirm">
-                    Cadastrar
-                  </button>
-                  <button
-                    type="button"
-                    className="cancel"
-                    onClick={handleOpenModal}
-                  >
-                    Cancelar
-                  </button>
-                </div>
-              </Form>
-            )}
-          </Formik>
-        </ModalContent>
-
         <div className="list-pets">
+          {pets.length === 0 && loading === false && (
+            <div className="any-data">
+              <h2>Voce ainda nao possui nenhum pet cadastrado.</h2>
+            </div>
+          )}
+          {loading && <DashboardSkeleton />}
           {pets.map((pet) => {
             return (
               <Link key={pet.id} to={`/pet-info/${pet.id}`}>
@@ -169,6 +113,71 @@ const Dashboard: React.FC = () => {
           })}
         </div>
       </Content>
+
+      <ModalContent isOpen={openModal} onRequestClose={handleOpenModal}>
+        <Formik
+          initialValues={{
+            name: '',
+            age: 0,
+            pet_id: user.id,
+            description: '',
+          }}
+          validationSchema={schema}
+          onSubmit={async (dataForm: CreatePetFormData) => {
+            try {
+              const { data } = await api.post('/pets', dataForm);
+
+              setPets([...pets, data]);
+
+              setOpenModal(false);
+
+              toast.success('Seu Pet foi sucesso');
+            } catch (err) {
+              toast.error('Não foi possivel criar seu novo pet');
+            }
+          }}
+        >
+          {({ errors, touched }) => (
+            <Form>
+              <h1>Cadastre seu novo pet</h1>
+              <div className="content">
+                <Field
+                  name="name"
+                  type="text"
+                  placeholder="Nome"
+                  className={errors.name && touched.name ? 'input-error' : ''}
+                />
+                {errors.name && touched.name ? <p>{errors.name}</p> : null}
+                <Field
+                  name="age"
+                  type="number"
+                  placeholder="Idade"
+                  min="1"
+                  className={errors.age && touched.age ? 'input-error' : ''}
+                />
+                {errors.age && touched.age ? <p>{errors.age}</p> : null}
+                <Field
+                  as="textarea"
+                  name="description"
+                  placeholder="Descrição"
+                />
+              </div>
+              <div className="buttons">
+                <button type="submit" className="confirm">
+                  Cadastrar
+                </button>
+                <button
+                  type="button"
+                  className="cancel"
+                  onClick={handleOpenModal}
+                >
+                  Cancelar
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </ModalContent>
     </Container>
   );
 };

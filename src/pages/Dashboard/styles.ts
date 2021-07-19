@@ -151,5 +151,18 @@ export const Content = styled.main`
         color: #cbcbd6;
       }
     }
+
+    .any-data {
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-size: 3rem;
+        color: #2f0147;
+        font-weight: 900;
+      }
+    }
   }
 `;
