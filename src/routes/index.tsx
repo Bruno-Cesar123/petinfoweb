@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
+import { ThemeProvider, DefaultTheme } from 'styled-components';
 
 import Landing from '../pages/Landing';
 import SignIn from '../pages/SignIn';
@@ -8,23 +9,43 @@ import Dashboard from '../pages/Dashboard';
 import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
 import ProfileUser from '../pages/ProfileUser';
-import ProfilePet from '../pages/ProfilePet';
 import PetInfo from '../pages/PetInfo';
 
 import Route from './Route';
+import { dark } from '../styles/themes/dark';
+import { light } from '../styles/themes/light';
+import usePersistedTheme from '../hooks/usePersistedTheme';
 
-const Routes: React.FC = () => (
-  <Switch>
-    <Route path="/" exact component={Landing} />
-    <Route path="/signin" component={SignIn} />
-    <Route path="/signup" component={SignUp} />
-    <Route path="/forgot-password" component={ForgotPassword} />
-    <Route path="/reset-password" component={ResetPassword} />
-    <Route path="/dashboard" component={Dashboard} isPrivate />
-    <Route path="/profile-user" component={ProfileUser} isPrivate />
-    <Route path="/profile-pet/:id" component={ProfilePet} isPrivate />
-    <Route path="/pet-info/:id" component={PetInfo} isPrivate />
-  </Switch>
-);
+import GlobalStyle from '../styles/global';
+
+const Routes: React.FC = () => {
+  const [theme, setTheme] = usePersistedTheme<DefaultTheme>('theme', light);
+
+  const toggleTheme = (): void => {
+    setTheme(theme.title === 'light' ? dark : light);
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Switch>
+        <Route path="/" exact component={Landing} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/reset-password" component={ResetPassword} />
+
+        <Route
+          path="/dashboard"
+          isPrivate
+          component={() => <Dashboard toggleTheme={toggleTheme} />}
+        />
+
+        <Route path="/profile-user" component={ProfileUser} isPrivate />
+        <Route path="/pet-info/:id" component={PetInfo} isPrivate />
+      </Switch>
+    </ThemeProvider>
+  );
+};
 
 export default Routes;

@@ -42,7 +42,7 @@ export const Content = styled.div`
     h2 {
       font-size: 4rem;
       margin-bottom: 24px;
-      color: #2f0147;
+      color: ${props => props.theme.colors.text};
     }
 
     input {
@@ -51,7 +51,9 @@ export const Content = styled.div`
       padding: 1.6rem;
       border-radius: 2rem;
       margin-top: 1.8rem;
-      border: 1px solid #2f0147;
+      border: 1px solid ${props => props.theme.colors.border};
+      color: ${props => props.theme.colors.text};
+      background: ${props => props.theme.colors.input};
     }
 
     .input-error {
@@ -118,7 +120,7 @@ export const AvatarInput = styled.div`
     svg {
       width: 20px;
       height: 20px;
-      color: #312e38;
+      color: #f8f8f8;
     }
 
     &:hover {

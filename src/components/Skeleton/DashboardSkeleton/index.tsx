@@ -27,18 +27,6 @@ const DashboardSkeleton: React.FC = () => {
           </p>
         </div>
       </a>
-
-      <a href="/">
-        <Skeleton circle height={64} width={64} />
-        <div>
-          <strong>
-            <Skeleton width={80} />
-          </strong>
-          <p>
-            <Skeleton width={140} />
-          </p>
-        </div>
-      </a>
     </div>
   );
 };

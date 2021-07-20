@@ -44,7 +44,7 @@ export const AnimationContainer = styled.div`
     h2 {
       font-size: 4rem;
       margin-bottom: 24px;
-      color: #2f0147;
+      color: ${props => props.theme.colors.text};
     }
 
     input {
@@ -53,7 +53,9 @@ export const AnimationContainer = styled.div`
       padding: 1.6rem;
       border-radius: 2rem;
       margin-top: 1.8rem;
-      border: 1px solid #2f0147;
+      border: 1px solid ${props => props.theme.colors.border};
+      color: ${props => props.theme.colors.text};
+      background: ${props => props.theme.colors.background};
     }
 
     .input-error {
@@ -80,13 +82,13 @@ export const AnimationContainer = styled.div`
       transition: background-color 0.2s;
 
       &:hover {
-        background: ${shade(0.6, '#2f0147')};
+        background: ${shade(0.2, '#2f0147')};
       }
     }
 
     a {
       font-size: 2rem;
-      color: #904aaa;
+      color: #2f0147;
       display: flex;
       align-items: center;
       justify-content: center;

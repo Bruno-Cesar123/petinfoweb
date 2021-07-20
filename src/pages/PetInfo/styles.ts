@@ -30,34 +30,28 @@ export const Content = styled.main`
   display: flex;
   gap: 24px;
 
-  /* div {
-    img {
-      padding: 12px;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-    }
-  } */
-
   form {
     padding: 12px;
 
     h2 {
       font-size: 4rem;
       margin-bottom: 24px;
-      color: #2f0147;
+      color: ${props => props.theme.colors.text};
     }
 
     input {
+      background: ${props => props.theme.colors.input};
       font-size: 1.6rem;
       width: 100%;
       padding: 1.6rem;
       border-radius: 2rem;
       margin-top: 1.8rem;
-      border: 1px solid #2f0147;
+      border: 1px solid ${props => props.theme.colors.border};
+      color: ${props => props.theme.colors.text};
     }
 
     textarea {
+      background: ${props => props.theme.colors.input};
       font-size: 1.6rem;
       font-family: 'Roboto', sans-serif;
       width: 100%;
@@ -65,7 +59,8 @@ export const Content = styled.main`
       padding: 1.6rem;
       border-radius: 0.8rem;
       margin-top: 1.8rem;
-      border: 1px solid #2f0147;
+      border: 1px solid ${props => props.theme.colors.border};
+      color: ${props => props.theme.colors.text};
     }
 
     button {

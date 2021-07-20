@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { FiPower, FiChevronRight } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
+import Switch from 'react-switch';
+import { ThemeContext } from 'styled-components';
 
 import ModalContent from '../../components/ModalContent';
 import { Container, Header, Profile, HeaderContent, Content } from './styles';
@@ -27,6 +29,10 @@ interface CreatePetFormData {
   description: string;
 }
 
+interface Props {
+  toggleTheme(): void;
+}
+
 const schema = Yup.object().shape({
   name: Yup.string().required('* Nome obrigatório'),
   age: Yup.number().required('* Idade obrigatória'),
@@ -34,11 +40,12 @@ const schema = Yup.object().shape({
   description: Yup.string(),
 });
 
-const Dashboard: React.FC = () => {
+const Dashboard: React.FC<Props> = ({ toggleTheme }) => {
   const { user, signOut } = useAuth();
   const [openModal, setOpenModal] = useState(false);
   const [pets, setPets] = useState<Pet[]>([]);
   const [loading, setLoading] = useState(true);
+  const { colors, title } = useContext(ThemeContext);
 
   useEffect(() => {
     api.get<Pet[]>('/pets').then((response) => {
@@ -56,21 +63,36 @@ const Dashboard: React.FC = () => {
     <Container>
       <Header>
         <HeaderContent>
-          <h2>INFOPETS</h2>
+          <div className="info">
+            <h2>INFOPETS</h2>
 
-          <Profile>
-            <img src={user.avatar_url} alt={user.name} />
-            <div>
-              <span>Bem-vindo,</span>
-              <Link to="/profile-user">
-                <strong>{user.name}</strong>
-              </Link>
-            </div>
-          </Profile>
+            <Profile>
+              <img src={user.avatar_url} alt={user.name} />
+              <div>
+                <span>Bem-vindo,</span>
+                <Link to="/profile-user">
+                  <strong>{user.name}</strong>
+                </Link>
+              </div>
+            </Profile>
+          </div>
 
-          <button type="button" onClick={signOut}>
-            <FiPower />
-          </button>
+          <div className="actions">
+            <Switch
+              onChange={toggleTheme}
+              checked={title === 'dark'}
+              checkedIcon={false}
+              handleDiameter={20}
+              uncheckedIcon={false}
+              height={10}
+              width={40}
+              offColor={colors.primary}
+              onColor={colors.secundary}
+            />
+            <button type="button" onClick={signOut}>
+              <FiPower />
+            </button>
+          </div>
         </HeaderContent>
       </Header>
 

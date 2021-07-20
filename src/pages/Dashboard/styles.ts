@@ -13,6 +13,12 @@ export const HeaderContent = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  .info {
+    display: flex;
+    align-items: center;
+  }
 
   h2 {
     font-size: 3rem;
@@ -34,6 +40,12 @@ export const HeaderContent = styled.div`
       width: 20px;
       height: 20px;
     }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 `;
 
@@ -80,12 +92,12 @@ export const Content = styled.main`
     align-items: center;
     justify-content: space-between;
     max-width: 700px;
-    border-bottom: 1px solid #2f0147;
+    border-bottom: 1px solid ${props => props.theme.colors.border};
 
     h1 {
       position: relative;
       padding: 1rem 0;
-      color: #2f0147;
+      color: ${props => props.theme.colors.text};
     }
 
     button {
@@ -105,7 +117,7 @@ export const Content = styled.main`
     max-width: 700px;
 
     a {
-      background: #fff;
+      background: ${props => props.theme.colors.input};
       border-radius: 5px;
       width: 100%;
       padding: 24px;
@@ -136,7 +148,7 @@ export const Content = styled.main`
 
         strong {
           font-size: 20px;
-          color: #2f0147;
+          color: ${props => props.theme.colors.text};
         }
 
         p {

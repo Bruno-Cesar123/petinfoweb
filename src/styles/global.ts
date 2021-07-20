@@ -14,8 +14,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #f8f8f8;
-    color: #000;
+    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
     font-size: 1.6rem;
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
