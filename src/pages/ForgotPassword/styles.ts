@@ -77,18 +77,18 @@ export const AnimationContainer = styled.div`
       border: 0;
       border-radius: 2rem;
       margin-top: 1.6rem;
-      background: #2f0147;
+      background: #41D3BD;
       color: #f8f8f8;
       transition: background-color 0.2s;
 
       &:hover {
-        background: ${shade(0.2, '#2f0147')};
+        background: ${shade(0.2, '#41D3BD')};
       }
     }
 
     a {
       font-size: 2rem;
-      color: #2f0147;
+      color: #41D3BD;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -97,7 +97,7 @@ export const AnimationContainer = styled.div`
       transition: color 0.2s;
 
       &:hover {
-        color: ${shade(0.2, '#2f0147')};
+        color: ${shade(0.2, '#41D3BD')};
       }
     }
 

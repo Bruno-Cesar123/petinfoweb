@@ -140,7 +140,7 @@ const Dashboard: React.FC<Props> = ({ toggleTheme }) => {
         <Formik
           initialValues={{
             name: '',
-            age: 0,
+            age: 1,
             pet_id: user.id,
             description: '',
           }}

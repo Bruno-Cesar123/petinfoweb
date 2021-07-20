@@ -53,7 +53,7 @@ export const AnimationContainer = styled.div`
       padding: 1.6rem;
       border-radius: 2rem;
       margin-top: 1.8rem;
-      border: 1px solid #2f0147;
+      border: 1px solid ${props => props.theme.colors.border};
       background: ${props => props.theme.colors.input};
       color: ${props => props.theme.colors.text};
     }
@@ -77,32 +77,32 @@ export const AnimationContainer = styled.div`
       border: 0;
       border-radius: 2rem;
       margin-top: 1.6rem;
-      background: #2f0147;
+      background: #41D3BD;
       color: #f8f8f8;
       transition: background-color 0.2s;
 
       &:hover {
-        background: ${shade(0.2, '#2f0147')};
+        background: ${shade(0.2, '#41D3BD')};
       }
     }
 
     a {
       font-size: 2rem;
-      color: #2f0147;
+      color: #41D3BD;
       display: block;
       margin-top: 24px;
       text-decoration: none;
       transition: color 0.2s;
 
       &:hover {
-        color: ${shade(0.2, '#2f0147')};
+        color: ${shade(0.2, '#41D3BD')};
       }
     }
   }
 
   > a {
     font-size: 2rem;
-    color: #2f0147;
+    color: #41D3BD;
     display: block;
     text-decoration: none;
     transition: color 0.2s;
@@ -115,7 +115,7 @@ export const AnimationContainer = styled.div`
     }
 
     &:hover {
-      color: ${shade(0.2, '#2f0147')};
+      color: ${shade(0.2, '#41D3BD')};
     }
   }
 `;

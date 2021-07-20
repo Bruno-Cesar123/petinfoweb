@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   > header {
     height: 144px;
-    background: #2f0147;
+    background: #41D3BD;
 
     display: flex;
     align-items: center;
@@ -15,7 +15,7 @@ export const Container = styled.div`
       margin: 0 auto;
 
       svg {
-        color: #999591;
+        color: #f8f8f8;
         width: 24px;
         height: 24px;
       }
@@ -75,12 +75,12 @@ export const Content = styled.div`
       border: 0;
       border-radius: 2rem;
       margin-top: 1.6rem;
-      background: #2f0147;
+      background: #41D3BD;
       color: #f8f8f8;
       transition: background-color 0.2s;
 
       &:hover {
-        background: ${shade(0.6, '#2f0147')};
+        background: ${shade(0.2, '#41D3BD')};
       }
     }
   }
@@ -101,7 +101,7 @@ export const AvatarInput = styled.div`
     position: absolute;
     width: 48px;
     height: 48px;
-    background: #2f0147;
+    background: #41D3BD;
     border-radius: 50%;
     right: 0;
     bottom: 0;
@@ -124,7 +124,7 @@ export const AvatarInput = styled.div`
     }
 
     &:hover {
-      background: ${shade(0.2, '#2f0147')};
+      background: ${shade(0.2, '#41D3BD')};
     }
   }
 `;

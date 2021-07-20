@@ -10,8 +10,7 @@ declare module 'styled-components' {
 
       background: string;
       input: string;
-      h1: string;
-      h2: string;
+      titleText: string;
       text: string;
       border: string;
 

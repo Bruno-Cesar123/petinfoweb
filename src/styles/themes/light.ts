@@ -5,11 +5,10 @@ export const light = {
     primary: '#f8f8f8',
     secundary: '#333',
 
-    background: '#f8f8f8',
+    background: '#f2f2f2',
     input: '#fff',
-    h1: '#2f0147',
-    h2: '#2f0147',
-    text: '#2f0147',
-    border: '#2f0147',
+    titleText: '#41D3BD',
+    text: '#000',
+    border: '#000',
   },
 };
