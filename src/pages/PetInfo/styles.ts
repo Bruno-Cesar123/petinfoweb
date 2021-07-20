@@ -32,6 +32,7 @@ export const Content = styled.main`
 
   form {
     padding: 12px;
+    width: 600px;
 
     h2 {
       font-size: 4rem;
@@ -79,6 +80,16 @@ export const Content = styled.main`
       &:hover {
         filter: brightness(0.9);
       }
+    }
+
+    .input-error {
+      border: solid 1px red;
+    }
+
+    p {
+      color: red;
+      font-size: 1.6rem;
+      margin-top: 1rem;
     }
 
     .buttons {

@@ -26,8 +26,8 @@ interface Pet {
 }
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('Nome obrigatório'),
-  age: Yup.number().required('Idade obrigatória'),
+  name: Yup.string().required('* Nome obrigatório'),
+  age: Yup.number().required('* Idade obrigatória'),
   description: Yup.string(),
 });
 
