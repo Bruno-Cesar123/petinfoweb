@@ -19,14 +19,14 @@ export const Content = styled.div`
     .info {
       h1 {
         font-size: 6rem;
-        color: #2f0147;
+        color: ${props => props.theme.colors.text};
         font-weight: 900;
       }
 
       p {
         margin: 1.6rem 0;
         font-size: 2rem;
-        color: #2f0147;
+        color: #41D3BD;
         font-weight: bold;
       }
 
@@ -39,7 +39,7 @@ export const Content = styled.div`
           height: 6rem;
           font-size: 2rem;
           border-radius: 24px;
-          background: #2f0147;
+          background: #41D3BD;
           color: #f8f8f8;
 
           text-decoration: none;
@@ -47,8 +47,8 @@ export const Content = styled.div`
 
           &:hover {
             background: #f8f8f8;
-            border: solid 1px #2f0147;
-            color: #2f0147;
+            border: solid 1px #41D3BD;
+            color: #41D3BD;
           }
         }
       }
@@ -80,7 +80,7 @@ export const Content = styled.div`
 
       p {
         font-size: 1.6rem;
-        color: #2f0147;
+        color: #41D3BD;
       }
     }
   }

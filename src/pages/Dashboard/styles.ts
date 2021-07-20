@@ -118,6 +118,7 @@ export const Content = styled.main`
 
     a {
       background: ${props => props.theme.colors.input};
+      border: 1px solid #41D3BD;
       border-radius: 5px;
       width: 100%;
       padding: 24px;
