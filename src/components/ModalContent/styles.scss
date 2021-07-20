@@ -3,8 +3,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-  background: #f8f8f8;
+  border: 1px solid var(--color-primary);
+  background: var(--color-gray);
   overflow: auto;
   border-radius: 4px;
   outline: none;
@@ -17,7 +17,7 @@
   h1 {
     text-align: center;
     padding: 1rem 0;
-    color: #41D3BD;
+    color: var(--color-primary);
   }
 
   .content {
@@ -31,7 +31,7 @@
       padding: 1.6rem;
       border-radius: 2rem;
       margin-top: 1.8rem;
-      border: 1px solid #000;
+      border: 1px solid var(--color-black);
     }
 
     textarea {
@@ -41,15 +41,15 @@
       padding: 1.6rem;
       border-radius: 0.8rem;
       margin-top: 1.8rem;
-      border: 1px solid #000;
+      border: 1px solid var(--color-black);
     }
 
     .input-error {
-      border: solid 1px red;
+      border: solid 1px var(--color-red);
     }
 
     p {
-      color: red;
+      color: var(--color-red);
       font-size: 1.6rem;
       margin-top: 1.6rem;
     }
@@ -79,13 +79,13 @@
     }
 
     .confirm {
-      background: #31d83f;
-      color: #f8f8f8;
+      background: var(--color-green);
+      color: var(--color-gray);
     }
 
     .cancel {
-      background: #ea4335;
-      color: #f8f8f8;
+      background: var(--color-red);
+      color: var(--color-gray);
     }
   }
 }

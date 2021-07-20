@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #41D3BD;
+  background-color: var(--color-primary);
 
   header {
     display: flex;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 
     p {
       font-size: 1.6rem;
-      color: #f8f8f8;
+      color: var(--color-gray);
     }
 
     ul {
@@ -26,7 +26,7 @@ export const Container = styled.div`
         a {
           text-decoration: none;
           font-size: 1.6rem;
-          color: #f8f8f8;
+          color: var(--color-gray);
           transition: all 300ms ease-in-out;
         }
 

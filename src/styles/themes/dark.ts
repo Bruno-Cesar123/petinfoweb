@@ -2,13 +2,13 @@ export const dark = {
   title: 'dark',
 
   colors: {
-    primary: '#f8f8f8',
-    secundary: '#000',
+    primary: 'var(--color-gray)',
+    secundary: 'var(--color-black)',
 
-    background: '#000',
-    input: '#232129',
-    text: '#f8f8f8',
-    titleText: '#f8f8f8',
-    border: '#f8f8f8',
+    background: 'var(--color-black)',
+    input: 'var(--color-black-light)',
+    text: 'var(--color-gray)',
+    titleText: 'var(--color-gray)',
+    border: 'var(--color-gray)',
   },
 };

@@ -59,11 +59,11 @@ export const AnimationContainer = styled.div`
     }
 
     .input-error {
-      border: solid 1px red;
+      border: solid 1px var(--color-red);
     }
 
     p {
-      color: red;
+      color: var(--color-red);
       font-size: 1.6rem;
       margin-top: 1rem;
     }
@@ -77,12 +77,12 @@ export const AnimationContainer = styled.div`
       border: 0;
       border-radius: 2rem;
       margin-top: 1.6rem;
-      background: #2f0147;
-      color: #f8f8f8;
+      background: var(--color-primary);
+      color: var(--color-gray);
       transition: background-color 0.2s;
 
       &:hover {
-        background: ${shade(0.6, '#2f0147')};
+        background: ${shade(0.2, '#41D3BD')};
       }
     }
 

@@ -4,7 +4,7 @@ export const Container = styled.div``;
 
 export const Header = styled.header`
   padding: 32px 0;
-  background: #41D3BD;
+  background: var(--color-primary);
 `;
 
 export const HeaderContent = styled.div`
@@ -21,8 +21,8 @@ export const HeaderContent = styled.div`
   }
 
   h2 {
-    font-size: 3rem;
-    color: #f8f8f8;
+    font-size: 4rem;
+    color: var(--color-gray);
     font-weight: 900;
   }
 
@@ -36,7 +36,7 @@ export const HeaderContent = styled.div`
     border: 0;
 
     svg {
-      color: #f8f8f8;
+      color: var(--color-gray);
       width: 20px;
       height: 20px;
     }
@@ -73,7 +73,7 @@ export const Profile = styled.div`
 
     a {
       text-decoration: none;
-      color: #f8f8f8;
+      color: var(--color-gray);
       font-size: 1.6rem;
 
       &:hover {
@@ -101,8 +101,8 @@ export const Content = styled.main`
     }
 
     button {
-      background: #41D3BD;
-      color: #f8f8f8;
+      background: var(--color-primary);
+      color: var(--color-gray);
       font-size: 1.6rem;
       padding: 8px;
       width: 12rem;
@@ -118,7 +118,7 @@ export const Content = styled.main`
 
     a {
       background: ${props => props.theme.colors.input};
-      border: 1px solid #41D3BD;
+      border: 1px solid var(--color-primary);
       border-radius: 5px;
       width: 100%;
       padding: 24px;
@@ -161,7 +161,7 @@ export const Content = styled.main`
 
       svg {
         margin-left: auto;
-        color: #cbcbd6;
+        color: var(--color-gray);
       }
     }
 

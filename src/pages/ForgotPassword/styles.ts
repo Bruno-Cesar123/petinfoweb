@@ -59,11 +59,11 @@ export const AnimationContainer = styled.div`
     }
 
     .input-error {
-      border: solid 1px red;
+      border: solid 1px var(--color-red);
     }
 
     p {
-      color: red;
+      color: var(--color-red);
       font-size: 1.6rem;
       margin-top: 1rem;
     }
@@ -77,8 +77,8 @@ export const AnimationContainer = styled.div`
       border: 0;
       border-radius: 2rem;
       margin-top: 1.6rem;
-      background: #41D3BD;
-      color: #f8f8f8;
+      background: var(--color-primary);
+      color: var(--color-gray);
       transition: background-color 0.2s;
 
       &:hover {
@@ -88,7 +88,7 @@ export const AnimationContainer = styled.div`
 
     a {
       font-size: 2rem;
-      color: #41D3BD;
+      color: var(--color-primary);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -105,8 +105,6 @@ export const AnimationContainer = styled.div`
       margin-right: 16px;
     }
   }
-
-
 `;
 
 export const Background = styled.div`

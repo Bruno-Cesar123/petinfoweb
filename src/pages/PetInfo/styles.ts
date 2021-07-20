@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   > header {
     padding: 32px 0;
-    background: #41D3BD;
+    background: var(--color-primary);
 
     display: flex;
     align-items: center;
@@ -15,7 +15,7 @@ export const Container = styled.div`
       margin: 0 auto;
 
       svg {
-        color: #f8f8f8;
+        color: var(--color-gray);
         width: 24px;
         height: 24px;
       }
@@ -83,11 +83,11 @@ export const Content = styled.main`
     }
 
     .input-error {
-      border: solid 1px red;
+      border: solid 1px var(--color-red);
     }
 
     p {
-      color: red;
+      color: var(--color-red);
       font-size: 1.6rem;
       margin-top: 1rem;
     }
@@ -98,13 +98,13 @@ export const Content = styled.main`
       margin-top: 1.8rem;
 
       .confirm {
-        background: #31d83f;
-        color: #f8f8f8;
+        background: var(--color-green);
+        color: var(--color-gray);
       }
 
       .exclude {
-        background: #ea4335;
-        color: #f8f8f8;
+        background: var(--color-red);
+        color: var(--color-gray);
       }
     }
   }
@@ -125,7 +125,7 @@ export const AvatarInput = styled.div`
     position: absolute;
     width: 48px;
     height: 48px;
-    background: #41D3BD;
+    background: var(--color-primary);
     border-radius: 50%;
     right: 0;
     bottom: 0;
@@ -144,7 +144,7 @@ export const AvatarInput = styled.div`
     svg {
       width: 20px;
       height: 20px;
-      color: #f8f8f8;
+      color: var(--color-gray);
     }
 
     &:hover {

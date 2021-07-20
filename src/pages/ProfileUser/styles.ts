@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   > header {
     height: 144px;
-    background: #41D3BD;
+    background: var(--color-primary);
 
     display: flex;
     align-items: center;
@@ -15,7 +15,7 @@ export const Container = styled.div`
       margin: 0 auto;
 
       svg {
-        color: #f8f8f8;
+        color: var(--color-gray);
         width: 24px;
         height: 24px;
       }
@@ -57,11 +57,11 @@ export const Content = styled.div`
     }
 
     .input-error {
-      border: solid 1px red;
+      border: solid 1px var(--color-red);
     }
 
     p {
-      color: red;
+      color: var(--color-red);
       font-size: 1.6rem;
       margin-top: 1rem;
     }
@@ -75,8 +75,8 @@ export const Content = styled.div`
       border: 0;
       border-radius: 2rem;
       margin-top: 1.6rem;
-      background: #41D3BD;
-      color: #f8f8f8;
+      background: var(--color-primary);
+      color: var(--color-gray);
       transition: background-color 0.2s;
 
       &:hover {
@@ -101,7 +101,7 @@ export const AvatarInput = styled.div`
     position: absolute;
     width: 48px;
     height: 48px;
-    background: #41D3BD;
+    background: var(--color-primary);
     border-radius: 50%;
     right: 0;
     bottom: 0;
@@ -120,7 +120,7 @@ export const AvatarInput = styled.div`
     svg {
       width: 20px;
       height: 20px;
-      color: #f8f8f8;
+      color: var(--color-gray);
     }
 
     &:hover {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background: #41D3BD;
+  background: var(--color-primary);
   margin-top: 10rem;
   height: 200px;
 
@@ -16,7 +16,7 @@ export const Container = styled.div`
     h2 {
       margin: 3rem 0;
       font-size: 3rem;
-      color: #f8f8f8;
+      color: var(--color-gray);
       font-weight: 700;
     }
 
@@ -28,7 +28,7 @@ export const Container = styled.div`
 
       p {
         font-size: 1.6rem;
-        color: #f8f8f8;
+        color: var(--color-gray);
       }
     }
   }

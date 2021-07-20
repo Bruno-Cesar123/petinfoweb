@@ -26,7 +26,7 @@ export const Content = styled.div`
       p {
         margin: 1.6rem 0;
         font-size: 2rem;
-        color: #41D3BD;
+        color: var(--color-primary);
         font-weight: bold;
       }
 
@@ -39,16 +39,16 @@ export const Content = styled.div`
           height: 6rem;
           font-size: 2rem;
           border-radius: 24px;
-          background: #41D3BD;
-          color: #f8f8f8;
+          background: var(--color-primary);
+          color: var(--color-gray);
 
           text-decoration: none;
           transition: background 0.4s;
 
           &:hover {
-            background: #f8f8f8;
-            border: solid 1px #41D3BD;
-            color: #41D3BD;
+            background: transparent;
+            border: solid 1px var(--color-primary);
+            color: var(--color-primary);
           }
         }
       }
@@ -80,7 +80,7 @@ export const Content = styled.div`
 
       p {
         font-size: 1.6rem;
-        color: #41D3BD;
+        color: var(--color-primary);
       }
     }
   }
