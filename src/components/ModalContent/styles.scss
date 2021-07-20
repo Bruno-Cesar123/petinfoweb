@@ -23,7 +23,7 @@
   .content {
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 100%;
 
     input {
       font-size: 1.6rem;
@@ -99,15 +99,9 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-@media (max-width: 780px) {
+@media (max-width: 650px) {
   .modal {
-    h1 {
-      font-size: 20px;
-    }
-
-    .content {
-      width: 380px;
-    }
+    width: 80%;
 
     .buttons {
       display: flex;

@@ -47,6 +47,34 @@ export const HeaderContent = styled.div`
     align-items: center;
     gap: 12px;
   }
+
+  @media(max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+
+    .info {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      >img {
+        height: 40px;
+      }
+    }
+
+    .actions {
+      width: 100%;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 `;
 
 export const Profile = styled.div`
@@ -81,6 +109,13 @@ export const Profile = styled.div`
       }
     }
   }
+
+  @media(max-width: 320px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
 `;
 
 export const Content = styled.main`
@@ -91,6 +126,7 @@ export const Content = styled.main`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 16px;
     max-width: 700px;
     border-bottom: 1px solid ${props => props.theme.colors.border};
 
@@ -115,6 +151,7 @@ export const Content = styled.main`
   .list-pets {
     margin-top: 80px;
     max-width: 700px;
+    padding: 0 16px;
 
     a {
       background: ${props => props.theme.colors.input};
@@ -176,6 +213,12 @@ export const Content = styled.main`
         color: ${props => props.theme.colors.text};
         font-weight: 900;
       }
+    }
+  }
+
+  @media(max-width: 320px) {
+    h1 {
+      font-size: 2.5rem;
     }
   }
 `;
