@@ -15,9 +15,6 @@ const Header: React.FC = () => {
           <li>
             <a href="#grid-two">SERVICES</a>
           </li>
-          <li>
-            <a href="#grid-two">CONTACT</a>
-          </li>
         </ul>
       </header>
     </Container>

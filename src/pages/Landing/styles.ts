@@ -13,6 +13,7 @@ export const Content = styled.div`
     display: grid;
     align-items: center;
     justify-content: center;
+    padding: 0 16px;
     grid-template-columns: 1fr 1fr;
     padding: 2rem;
 
@@ -60,10 +61,16 @@ export const Content = styled.div`
         width: 100%;
       }
     }
+
+    @media(max-width: 700px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
   }
 
   #grid-two {
     display: grid;
+    padding: 0 16px;
     margin-top: 10rem;
     grid-template-columns: repeat(3, 1fr);
 
@@ -82,6 +89,11 @@ export const Content = styled.div`
         font-size: 1.6rem;
         color: var(--color-primary);
       }
+    }
+
+    @media(max-width: 700px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
   }
 `;

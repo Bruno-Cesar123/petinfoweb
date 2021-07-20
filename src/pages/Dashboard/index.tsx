@@ -45,7 +45,7 @@ const Dashboard: React.FC<Props> = ({ toggleTheme }) => {
   const [openModal, setOpenModal] = useState(false);
   const [pets, setPets] = useState<Pet[]>([]);
   const [loading, setLoading] = useState(true);
-  const { colors, title } = useContext(ThemeContext);
+  const { title } = useContext(ThemeContext);
 
   useEffect(() => {
     api.get<Pet[]>('/pets').then((response) => {
@@ -86,8 +86,8 @@ const Dashboard: React.FC<Props> = ({ toggleTheme }) => {
               uncheckedIcon={false}
               height={10}
               width={40}
-              offColor={colors.primary}
-              onColor={colors.secundary}
+              offColor="#000"
+              onColor="#F8F8F8"
             />
             <button type="button" onClick={signOut}>
               <FiPower />

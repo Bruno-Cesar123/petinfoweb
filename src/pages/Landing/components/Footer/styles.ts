@@ -32,4 +32,16 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media(max-width: 700px) {
+    footer {
+      h2 {
+        font-size: 2rem;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
 `;
