@@ -10,6 +10,7 @@ export const Container = styled.div`
     align-items: center;
 
     div {
+      padding: 0 16px;
       width: 100%;
       max-width: 1120px;
       margin: 0 auto;
@@ -33,6 +34,7 @@ export const Content = styled.div`
   width: 100%;
 
   form {
+
     margin: 80px 0;
     width: 340px;
     text-align: center;
@@ -82,6 +84,13 @@ export const Content = styled.div`
       &:hover {
         background: ${shade(0.2, '#41D3BD')};
       }
+    }
+  }
+
+  @media(max-width: 700px) {
+    form {
+      padding: 0 16px;
+      width: 100%;
     }
   }
 `;

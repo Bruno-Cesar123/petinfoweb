@@ -4,8 +4,14 @@ import { shade } from 'polished';
 export const Container = styled.div`
   height: 100vh;
   display: flex;
+  gap: 16px;
   align-items: stretch;
   margin: 0 1.6rem;
+
+  @media(max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Content = styled.div`
@@ -118,6 +124,12 @@ export const AnimationContainer = styled.div`
       color: ${shade(0.2, '#41D3BD')};
     }
   }
+
+  @media(max-width: 700px) {
+    form {
+      width: 100%;
+    }
+  }
 `;
 
 export const Background = styled.div`
@@ -127,5 +139,13 @@ export const Background = styled.div`
 
   img {
     width: 100%;
+  }
+
+  @media(max-width: 700px) {
+    display: none;
+
+    img {
+      display: none;
+    }
   }
 `;

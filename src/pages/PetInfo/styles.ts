@@ -10,6 +10,7 @@ export const Container = styled.div`
     align-items: center;
 
     div {
+      padding: 0 16px;
       width: 100%;
       max-width: 1120px;
       margin: 0 auto;
@@ -105,6 +106,26 @@ export const Content = styled.main`
       .exclude {
         background: var(--color-red);
         color: var(--color-gray);
+      }
+    }
+  }
+
+  @media(max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+
+    form {
+      width: 100%;
+
+      h2 {
+      text-align: center;
+      font-size: 3.5rem;
+    }
+
+      .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
     }
   }
