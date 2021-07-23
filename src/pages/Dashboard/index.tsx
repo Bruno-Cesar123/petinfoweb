@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { FiPower, FiChevronRight } from 'react-icons/fi';
 import { toast } from 'react-toastify';
@@ -46,14 +46,23 @@ const Dashboard: React.FC<Props> = ({ toggleTheme }) => {
   const [pets, setPets] = useState<Pet[]>([]);
   const [loading, setLoading] = useState(true);
   const { title } = useContext(ThemeContext);
+  const history = useHistory();
 
   useEffect(() => {
-    api.get<Pet[]>('/pets').then((response) => {
-      const newPets = response.data;
-      setPets(newPets);
-      setLoading(false);
-    });
-  }, []);
+    api
+      .get<Pet[]>('/pets')
+      .then((response) => {
+        const newPets = response.data;
+        setPets(newPets);
+        setLoading(false);
+      })
+      .catch(() => {
+        signOut();
+        toast.warning('É necessário realizar o login novamente');
+
+        history.push('/signin');
+      });
+  }, [history, signOut]);
 
   function handleOpenModal(): void {
     setOpenModal(false);
