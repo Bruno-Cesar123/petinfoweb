@@ -175,6 +175,7 @@ export const Content = styled.main`
       }
 
       img {
+        background-color: ${props => props.theme.colors.input};
         width: 64px;
         height: 64px;
         border-radius: 50%;
@@ -190,6 +191,7 @@ export const Content = styled.main`
         }
 
         p {
+          background: ${props => props.theme.colors.input};
           font-size: 18px;
           color: #a8a8b3;
           margin-top: 4px;
